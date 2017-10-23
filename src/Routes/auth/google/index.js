@@ -1,5 +1,5 @@
 const passport = require('passport');
-const ROUTES = require('/src/Routes/consts');
+const ROUTES = require('../../consts');
 const {AUTH} = ROUTES;
 
 

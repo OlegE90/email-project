@@ -10,14 +10,15 @@ const UserSchemas = require('./src/Schemas/User');
 
 const PORT = process.env.PORT || 5000;
 
-mongoose.connect(keys.mongodbURI);
+mongoose.connect(keys.MONGODB_URI);
 
 const User = mongoose.model('User', UserSchemas);
 
 passport.use(new GoogleStrategy({
-        clientID: keys.google.client_id,
-        clientSecret: keys.google.client_secret,
-        callbackURL: "http://localhost:3000/auth/google/callback"
+        clientID: keys.GOOGLE_CLIENT_ID,
+        clientSecret: keys.GOOGLE_CLIENT_SECRET,
+        callbackURL: '/auth/google/callback',
+        proxy: true,
     },
     (accessToken, refreshToken, profile, done) => {
        console.log(accessToken);
