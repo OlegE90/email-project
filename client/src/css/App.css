@@ -1,0 +1,30 @@
+.themePage {
+
+}
+
+.themePage-add a {
+    margin-right: 10px;
+}
+
+.themePage-link {
+    display: flex;
+    justify-content: center;
+}
+
+.themePage-link .input-field{
+    overflow: hidden;
+}
+
+.themePage-chat {
+    margin-top: 30px;
+}
+
+.themePage-chatMessages{
+    max-height: 300px;
+}
+
+.themePage-link-button {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}

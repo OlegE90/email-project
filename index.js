@@ -8,6 +8,7 @@ const keys = require('./config/keys');
 const routes = require('./src/Routes/main');
 const UserSchemas = require('./src/Schemas/User');
 
+console.log(process.env.PORT);
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(keys.MONGODB_URI);
