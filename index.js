@@ -7,12 +7,16 @@ var cookieSession = require('cookie-session');
 const keys = require('./config/keys');
 const routes = require('./src/Routes/main');
 const UserSchemas = require('./src/Schemas/User');
+const ThemeSchemas = require('./src/Schemas/Theme');
+const UserThemeSchemas = require('./src/Schemas/UserTheme');
 
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(keys.MONGODB_URI);
 
 const User = mongoose.model('User', UserSchemas);
+const Theme = mongoose.model('Theme', ThemeSchemas);
+const UserTheme = mongoose.model('UserTheme', UserThemeSchemas);
 
 passport.use(new GoogleStrategy({
         clientID: keys.GOOGLE_CLIENT_ID,
