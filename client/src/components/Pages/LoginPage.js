@@ -11,8 +11,7 @@ class LoginPage extends React.Component {
                         <div className="row center">
                         </div>
                         <div className="row center">
-                            <a
-                                href="http://materializecss.com/getting-started.html">
+                            <a href="/auth/google">
                                 <img src={googlePlus} width="100"/>
                             </a>
                         </div>

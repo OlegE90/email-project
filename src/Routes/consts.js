@@ -10,6 +10,9 @@ module.exports = {
     API: {
         CURRENT_USER: {
             FULL_PATH: '/api/current_user'
+        },
+        LOGOUT: {
+            FULL_PATH: '/api/logout'
         }
     },
     LOGOUT: {

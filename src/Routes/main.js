@@ -23,7 +23,6 @@ function utils (currentRoute, prevData = []) {
     }
 
     if(Array.isArray(currentRoute.sub)) {
-        console.log(currentRoute.sub[0]);
         currentRoute.sub.map((item) => utils(item, prevData))
     }
 
@@ -33,7 +32,7 @@ function utils (currentRoute, prevData = []) {
 module.exports = (app) => {
     const getRoutes = utils(index[0]);
 
-    console.log(getRoutes);
+    //console.log(getRoutes);
 
     getRoutes.map((rout) => {
         searchingMethod.map((method) => {

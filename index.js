@@ -8,7 +8,6 @@ const keys = require('./config/keys');
 const routes = require('./src/Routes/main');
 const UserSchemas = require('./src/Schemas/User');
 
-console.log(process.env.PORT);
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(keys.MONGODB_URI);
@@ -22,15 +21,16 @@ passport.use(new GoogleStrategy({
         proxy: true,
     },
     (accessToken, refreshToken, profile, done) => {
-       console.log(accessToken);
-       console.log(profile);
-
+        console.log(profile);
         const social_id = profile.id;
+        const name = profile.displayName;
+
         User.findOne({ 'social_id': social_id }, (err, user) => {
             if (!user) {
                 new User({
                     social_id: social_id,
-                    network: 'google'
+                    network: 'google',
+                    name
                 }).save().then(user => done(null, user));
             }
 
@@ -42,7 +42,6 @@ passport.use(new GoogleStrategy({
 // used to serialize the user for the session
 passport.serializeUser(function(user, done) {
     done(null, user.id);
-    // where is this user.id going? Are we supposed to access this anywhere?
 });
 
 // used to deserialize the user
@@ -55,9 +54,8 @@ passport.deserializeUser(function(id, done) {
 let app = express();
 app.use(cookieSession({
     name: 'session',
-    keys: ['werwer23423420rrf293'],
-    // Cookie Options
-    maxAge: 30 * 24 * 60 * 60 * 1000 // 24 hours
+    keys: [keys.COOKIE_KEY],
+    maxAge: 30 * 24 * 60 * 60 * 1000
 }));
 
 app.use(passport.initialize());

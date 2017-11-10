@@ -9,7 +9,7 @@ const pageCallback = {
 
     get: [
          passport.authenticate('google', {scope: ['profile']}),
-        (req, res) => res.redirect('/')
+        (req, res) => res.redirect('/theme')
     ],
 
 };

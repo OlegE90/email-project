@@ -1,7 +1,7 @@
 const googleOAuthPage = require('./auth/google');
-const logoutPage = require('./logout');
 const testPage = require('./test');
 const apiCurrentUser = require('./api/current_user');
+const apiLogout = require('./api/logout');
 
 const page = {
 
@@ -23,7 +23,7 @@ module.exports = [
         index: page,
         sub: [
             apiCurrentUser,
-            logoutPage,
+            apiLogout,
             googleOAuthPage,
             testPage
         ]

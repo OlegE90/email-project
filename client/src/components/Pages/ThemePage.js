@@ -8,7 +8,7 @@ class ThemePage extends React.Component {
 
                     <div className="row">
 
-                        <div className="col s4 themePage-nav">
+                        <div className="col s3 themePage-nav">
                             <div className="themePage-add section">
                                     <a className="btn-floating waves-effect waves-light red"><i
                                         className="material-icons">add</i></a>
@@ -22,7 +22,7 @@ class ThemePage extends React.Component {
                             </div>
                         </div>
 
-                        <div className="col s8">
+                        <div className="col s9">
 
                             <form>
                                 <div className="themePage-link row">
@@ -32,7 +32,7 @@ class ThemePage extends React.Component {
                                         </div>
                                     </div>
                                     <div className="col s3 themePage-link-button ">
-                                            <a className="waves-effect waves-light btn grey lighten-2">Copy link</a>
+                                            <a className="waves-effect waves-light z-depth-0 btn grey lighten-2">Copy link</a>
                                     </div>
                                 </div>
 
