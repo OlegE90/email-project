@@ -6,4 +6,4 @@ const UserTheme = new Schema({
     theme_id: {type: Schema.Types.ObjectId, ref: 'Theme'}
 });
 
-module.exports = UserTheme;
+module.exports = mongoose.model('UserTheme', UserTheme);

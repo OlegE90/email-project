@@ -7,4 +7,4 @@ const Theme = new Schema({
     link:  String,
 });
 
-module.exports = Theme;
+module.exports = mongoose.model('Theme', Theme);
