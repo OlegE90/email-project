@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 
-const config = require('../config/keys');
+const config = require('./config');
 const commonMiddleware = require('./commonMiddleware');
 
 //Routes

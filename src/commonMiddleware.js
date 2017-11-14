@@ -2,7 +2,7 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const cookieSession = require('cookie-session');
 const passport = require('passport');
 
-const config = require('../config/keys');
+const config = require('./config');
 
 // Shemes
 const User = require('./Schemas/User');
