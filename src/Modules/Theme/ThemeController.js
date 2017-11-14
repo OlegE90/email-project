@@ -1,5 +1,5 @@
-const generateControllers = require('../../Core/generateControllers');
+import generateControllers from '../../Core/generateControllers';
 
-const Theme = require('../../Schemas/Theme');
+import Theme from '../../Schemas/Theme';
 
-module.exports = generateControllers(Theme);
+export default generateControllers(Theme);

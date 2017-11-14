@@ -1,15 +1,19 @@
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const cookieSession = require('cookie-session');
-const passport = require('passport');
+import Google from 'passport-google-oauth20';
+import cookieSession from 'cookie-session';
+import passport from 'passport';
+import bodyParser from 'body-parser';
 
-const config = require('./config');
+import config from './config';
 
 // Shemes
-const User = require('./Schemas/User');
-const UserTheme = require('./Schemas/UserTheme');
-const Theme = require('./Schemas/Theme');
+import User from './Schemas/User';
 
-module.exports = function(app) {
+const GoogleStrategy = Google.Strategy;
+
+export default function(app) {
+
+    app.use(bodyParser.urlencoded());
+    app.use(bodyParser.json());
 
     passport.use(new GoogleStrategy({
             clientID: config.google.google_client_id,

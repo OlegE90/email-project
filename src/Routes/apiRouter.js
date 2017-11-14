@@ -1,6 +1,6 @@
-const express = require('express');
+import express from 'express';
 
-const ThemeRouter = require('../Modules/Theme/ThemeRouter');
+import ThemeRouter from '../Modules/Theme/ThemeRouter';
 
 const apiRouter = express.Router();
 
@@ -21,4 +21,4 @@ apiRouter.get(
 
 apiRouter.use('/theme', ThemeRouter);
 
-module.exports = apiRouter;
+export default  apiRouter;

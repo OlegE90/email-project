@@ -1,5 +1,5 @@
-const express = require('express');
-const passport = require('passport');
+import express from 'express';
+import passport from 'passport';
 
 const authRouter = express.Router();
 
@@ -14,4 +14,4 @@ authRouter.get(
     (req, res) => res.redirect('/theme')
 );
 
-module.exports = authRouter;
+export default authRouter;

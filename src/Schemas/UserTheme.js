@@ -1,4 +1,5 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+
 const {Schema} = mongoose;
 
 const UserTheme = new Schema({
@@ -6,4 +7,4 @@ const UserTheme = new Schema({
     theme_id: {type: Schema.Types.ObjectId, ref: 'Theme'}
 });
 
-module.exports = mongoose.model('UserTheme', UserTheme);
+export default mongoose.model('UserTheme', UserTheme);

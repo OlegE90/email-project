@@ -1,17 +1,17 @@
-const express = require('express');
+import express from 'express';
 
-const Theme = require('./ThemeController');
+import ThemeController from './ThemeController';
 
 const themeRouter = express.Router();
 
 themeRouter.post(
     '/',
-    Theme.createOne
+    ThemeController.createOne
 );
 
 themeRouter.get(
     '/:id',
-    Theme.getOne
+    ThemeController.getOne
 );
 
-module.exports = themeRouter;
+export default themeRouter;

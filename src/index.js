@@ -1,24 +1,23 @@
-const express = require('express');
-const mongoose = require('mongoose');
+import http from 'http';
 
-const config = require('./config');
-const commonMiddleware = require('./commonMiddleware');
+import app from './server';
 
-//Routes
-const apiRouter = require('./Routes/apiRouter');
-const authRouter = require('./Routes/authRouter');
-const testRouter = require('./Routes/testRouter');
-
+const server = http.createServer(app);
 const PORT = process.env.PORT || 5000;
 
-let app = express();
+let currentApp = app;
 
-mongoose.connect(config.mongodb_uri);
+server.listen(PORT, () => {
+    console.log('Server listening on port '+ PORT);
+});
 
-commonMiddleware(app);
-
-app.use('/api', apiRouter);
-app.use('/auth', authRouter);
-app.use('/test', testRouter);
-
-app.listen(PORT);
+// check if HMR is enabled
+if(module.hot) {
+    // accept update of dependency
+    module.hot.accept(["./server"], function() {
+        // replace request handler of server
+        server.removeListener("request", currentApp);
+        server.on("request", app);
+        currentApp = app;
+    });
+}

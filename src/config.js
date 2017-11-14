@@ -1,4 +1,4 @@
-let config  = null;
+let config = null;
 
 if (process.env.NODE_ENV === 'production') {
     config = {
@@ -20,4 +20,4 @@ if (process.env.NODE_ENV === 'production') {
     }
 }
 
-module.exports = config;
+export default config;

@@ -1,10 +1,11 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+
 const {Schema} = mongoose;
 
 const Theme = new Schema({
-    title:  String,
-    description:  String,
-    link:  String,
+    title: String,
+    description: String,
+    link: String,
 });
 
-module.exports = mongoose.model('Theme', Theme);
+export default mongoose.model('Theme', Theme);
