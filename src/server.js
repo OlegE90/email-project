@@ -17,7 +17,9 @@ mongoose.connect(config.mongodb_uri);
 
 commonMiddleware(app);
 
-app.use('/api', apiRouter);
+const checkUser = (req, _, next) => req.user ? next() : next(new Error('User not authorized!'));
+
+app.use('/api', checkUser, apiRouter);
 app.use('/auth', authRouter);
 app.use('/test', testRouter);
 

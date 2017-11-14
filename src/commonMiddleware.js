@@ -25,7 +25,7 @@ export default function(app) {
             const social_id = profile.id;
             const name = profile.displayName;
 
-            User.findOne({'social_id': social_id}, (err, user) => {
+            User.findOne({social_id}, (err, user) => {
                 if (!user) {
                     new User({
                         social_id,
@@ -58,5 +58,4 @@ export default function(app) {
 
     app.use(passport.initialize());
     app.use(passport.session());
-
 };
