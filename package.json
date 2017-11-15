@@ -25,7 +25,6 @@
     "babel-loader": "^8.0.0-beta.0",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "nodemon": "^1.12.1",
     "start-server-webpack-plugin": "^2.2.0",
     "webpack-node-externals": "^1.6.0"
   }

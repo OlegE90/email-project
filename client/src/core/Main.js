@@ -1,31 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Route } from 'react-router-dom'
+
+import LoginPage from '../modules/Common/Pages/LoginPage';
+import AboutPage from '../modules/Common/Pages/AboutPage';
+import ThemePage from '../modules/Themes/Pages/ThemePage';
 
 import {ROUTES} from './../routes';
 
 class Main extends React.Component {
 
     render() {
-
-        console.log(this.props.children);
         return (
             <div>
-                <header className="App-header">
-                    <nav>
-                        <div className="nav-wrapper container">
-                            {<ul className="left hide-on-med-and-down">
-                                <li><Link to={ROUTES.ABOUT.FULL_PATH}>About</Link></li>
-                                <li><Link to={ROUTES.THEMES.FULL_PATH}>Theme</Link></li>
-                            </ul>}
-                            {<div className="right">
-                                <span className="padding-right-10">Hello!</span>
-                                <a className="waves-effect waves-light btn amber accent-4 z-depth-0"
-                                   href="/api/logout">Logout</a>
-                            </div>}
-                        </div>
-                    </nav>
-                </header>
-                {this.props.children}
+                <Route exact component={LoginPage} path={ROUTES.LOGIN.FULL_PATH}/>
+                <Route component={AboutPage} path={ROUTES.ABOUT.FULL_PATH}/>
+                <Route component={ThemePage} path={ROUTES.THEMES.FULL_PATH}/>
             </div>
         );
     }

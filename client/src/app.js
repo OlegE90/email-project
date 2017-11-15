@@ -1,11 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Link} from 'react-router-dom';
+import {Route, BrowserRouter as Router, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import './assets/css/App.css';
+import Main from './core/Main';
 
 import * as actions from './actions';
-import {RoutesComponent, ROUTES} from './routes'
+import {ROUTES} from './routes'
 
 class App extends React.Component {
 
@@ -34,7 +35,7 @@ class App extends React.Component {
                                 </div>
                             </nav>
                         </header>
-                        <RoutesComponent options={{auth}} />
+                        <Route path={ROUTES.FULL_PATH} component={Main} />
                     </div>
 
                     <footer className="page-footer">
