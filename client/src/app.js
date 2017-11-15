@@ -1,14 +1,11 @@
 import React from 'react';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
+import { BrowserRouter as Router, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import './assets/css/App.css';
 
 import * as actions from './actions';
-
-import LoginPage from './components/Pages/LoginPage';
-import ThemePage from './modules/Themes/Pages/ThemePage';
-import AboutPage from './components/Pages/AboutPage';
+import {RoutesComponent, ROUTES} from './routes'
 
 class App extends React.Component {
 
@@ -20,15 +17,15 @@ class App extends React.Component {
         const {auth} = this.props;
 
         return (
-            <div className="App">
-                <BrowserRouter>
+            <Router className="App">
+                <div>
                     <div>
                         <header className="App-header">
                             <nav>
                                 <div className="nav-wrapper container">
                                     {auth && <ul  className="left hide-on-med-and-down">
-                                        <li><Link to="/about">About</Link></li>
-                                        <li><Link to="/theme">Theme</Link></li>
+                                        <li><Link to={ROUTES.ABOUT.FULL_PATH}>About</Link></li>
+                                        <li><Link to={ROUTES.THEMES.FULL_PATH}>Theme</Link></li>
                                     </ul>}
                                     {auth && <div className="right">
                                         <span className="padding-right-10">Hello {auth.name}!</span>
@@ -37,20 +34,18 @@ class App extends React.Component {
                                 </div>
                             </nav>
                         </header>
-                        <Route exact component={LoginPage} path="/"/>
-                        {auth && <Route exact component={ThemePage} path="/theme"/>}
-                        <Route component={AboutPage} path="/about"/>
+                        <RoutesComponent options={{auth}} />
                     </div>
-                </BrowserRouter>
 
-                <footer className="page-footer">
-                    <div className="footer-copyright">
-                        <div className="container">
-                            © 2017 Copyright Text
+                    <footer className="page-footer">
+                        <div className="footer-copyright">
+                            <div className="container">
+                                © 2017 Copyright Text
+                            </div>
                         </div>
-                    </div>
-                </footer>
-            </div>
+                    </footer>
+                </div>
+            </Router>
         );
     }
 }

@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {LeftSidebar} from '../Components/LeftSidebar';
-import {ThemeForm} from '../Components/ThemeForm';
 import {Chat} from '../Components/Chat';
 
 class ThemePage extends React.Component {
@@ -18,7 +17,7 @@ class ThemePage extends React.Component {
 
                         <div className="col s9">
 
-                            <ThemeForm/>
+                            {this.props.children}
 
                             <div className="themePage-chat">
                                 <Chat />

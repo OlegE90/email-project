@@ -1,7 +1,8 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import Spinner from '../../../components/Common/Spinner';
+import Spinner from '../../../core/Common/Spinner';
 
 import * as actions from '../Actions';
 
@@ -21,7 +22,7 @@ class LeftSidebarComponent extends React.Component {
                     <span>Add new theme</span>
                 </div>
                 {list.data ? <div className="collection">
-                    {list.data.map((item, key) => <a href="#!" key={key} className="collection-item">{item.title}</a>)}
+                    {list.data.map((item, key) => <Link to={`/theme/${item._id}`} key={key} className="collection-item">{item.title}</Link>)}
                 </div> : <Spinner className="center-align" />}
             </div>
         );
