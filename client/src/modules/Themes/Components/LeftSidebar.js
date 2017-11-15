@@ -1,7 +1,9 @@
 import React from 'react';
+import {replace} from 'lodash';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
+import {ROUTES} from './../../../routes';
 import Spinner from '../../../core/Common/Spinner';
 
 import * as actions from '../Actions';
@@ -12,7 +14,7 @@ class LeftSidebarComponent extends React.Component {
     }
 
     render() {
-        const {list} = this.props.theme;
+        const {list} = this.props.themes;
 
         return (
             <div>
@@ -22,15 +24,15 @@ class LeftSidebarComponent extends React.Component {
                     <span>Add new theme</span>
                 </div>
                 {list.data ? <div className="collection">
-                    {list.data.map((item, key) => <Link to={`/theme/${item._id}`} key={key} className="collection-item">{item.title}</Link>)}
+                    {list.data.map((item, key) => <Link to={replace(ROUTES.THEMES.EDIT.FULL_PATH, ':id', item._id)} key={key} className="collection-item">{item.title}</Link>)}
                 </div> : <Spinner className="center-align" />}
             </div>
         );
     }
 }
 
-function mapStateProps ({theme}) {
-    return {theme}
+function mapStateProps ({themes}) {
+    return {themes}
 }
 
 export const LeftSidebar = connect(mapStateProps, actions)(LeftSidebarComponent);

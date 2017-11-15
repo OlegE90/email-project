@@ -1,10 +1,10 @@
 import React from 'react';
 
-export class Details extends React.Component {
+export class Hello extends React.Component {
     render() {
         return (
             <div>
-
+                Hello!!
             </div>
         );
     }
