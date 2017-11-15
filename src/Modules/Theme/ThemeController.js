@@ -13,5 +13,24 @@ export default generateControllers(Theme, {
         } catch (error) {
             next(error)
         }
+    },
+    getList: async (req, res, next) => {
+        try {
+            let themesIds = [];
+            await UserTheme.find({user_id: req.user._id}).select( 'theme_id' ).lean().exec((err, theme) => {
+                if (!err) {
+                    theme.map((item) => themesIds.push(item.theme_id));
+                } else {
+                    throw new Error(err);
+                }
+            });
+
+            const themes = await Theme.find({_id: {"$in": themesIds}}).lean().exec();
+
+            res.status(200).json(themes)
+
+        } catch (error) {
+            next(error)
+        }
     }
 });

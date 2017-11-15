@@ -5,9 +5,8 @@
   "main": "index.js",
   "scripts": {
     "client": "npm run start --prefix client",
-    "server": "nodemon src/index.js",
-    "server-test": "webpack --colors --progress",
-    "start": "concurrently \"npm run server-test NODE_ENV=production\" \"npm run client\""
+    "server": "webpack --colors --progress",
+    "start": "concurrently \"npm run server NODE_ENV=production\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",

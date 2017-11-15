@@ -10,6 +10,12 @@ themeRouter.post(
     '/',
     ThemeController.createOne
 );
+
+themeRouter.get(
+    '/list',
+    ThemeController.getList
+);
+
 themeRouter.route('/:id')
     .get(ThemeController.getOne)
     .delete(ThemeController.deleteOne)
