@@ -1,14 +1,14 @@
 import React from 'react';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 
-import '../css/App.css';
+import './assets/css/App.css';
 
-import * as actions from '../actions';
+import * as actions from './actions';
 
-import LoginPage from './Pages/LoginPage';
-import ThemePage from './Pages/ThemePage';
-import AboutPage from './Pages/AboutPage';
+import LoginPage from './components/Pages/LoginPage';
+import ThemePage from './modules/Themes/Pages/ThemePage';
+import AboutPage from './components/Pages/AboutPage';
 
 class App extends React.Component {
 

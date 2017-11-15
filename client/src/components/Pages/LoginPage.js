@@ -1,6 +1,6 @@
 import React from 'react';
 
-import googlePlus from '../../icons/social/google_plus.svg';
+import googlePlus from '../../assets/icons/social/google_plus.svg';
 
 class LoginPage extends React.Component {
     render() {
