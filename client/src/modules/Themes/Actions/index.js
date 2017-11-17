@@ -5,6 +5,9 @@ import {
     UPDATE_THEME,
 } from './types'
 
+
+//TODO. Сделать экшены чистыми функциями.
+
 export const fetchThemesList = () => async (dispatch) => {
         const result = await axios.get('/api/theme/list');
         dispatch({type: FETCH_THEME_LIST_DATA, payload: result.data})
