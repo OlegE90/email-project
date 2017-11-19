@@ -13,7 +13,6 @@ const getDefaultState = () => ({
 });
 
 export default function(state = getDefaultState(), action) {
-    console.log(action);
     switch (action.type) {
         case FETCH_THEME_LIST_DATA:
             return {
