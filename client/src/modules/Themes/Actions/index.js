@@ -5,7 +5,7 @@ import {
     UPDATE_THEME,
 } from './types'
 
-export const fetchThemesList = () => ({type: FETCH_THEME_LIST_DATA});
+export const fetchThemesList = () => ({type: FETCH_THEME_LIST_DATA, payload: {status: "BEGIN"}});
 
 
 // export const fetchThemesList = () => async (dispatch) => {

@@ -16,8 +16,8 @@ function* fetchUser(action) {
     }
 }
 
-function* usersSaga() {
+function* watchUsersSaga() {
     yield takeEvery(FETCH_USER_DATA, fetchUser);
 }
 
-export default usersSaga;
+export default watchUsersSaga;
