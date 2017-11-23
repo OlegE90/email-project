@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import './assets/css/App.css';
 import Main from './core/Main';
 
-import * as actions from './actions';
+import * as actions from './modules/Users/actions';
 import {ROUTES} from './routes'
 
 class App extends React.Component {
@@ -15,7 +15,7 @@ class App extends React.Component {
     }
 
     render() {
-        const {auth} = this.props;
+        const {user} = this.props;
 
         return (
             <Router className="App">
@@ -24,12 +24,12 @@ class App extends React.Component {
                         <header className="App-header">
                             <nav>
                                 <div className="nav-wrapper container">
-                                    {auth && <ul  className="left hide-on-med-and-down">
+                                    {user && <ul  className="left hide-on-med-and-down">
                                         <li><Link to={ROUTES.ABOUT.FULL_PATH}>About</Link></li>
                                         <li><Link to={ROUTES.THEMES.FULL_PATH}>Theme</Link></li>
                                     </ul>}
-                                    {auth && <div className="right">
-                                        <span className="padding-right-10">Hello {auth.name}!</span>
+                                    {user && <div className="right">
+                                        <span className="padding-right-10">Hello {user.name}!</span>
                                         <a className="waves-effect waves-light btn amber accent-4 z-depth-0" href="/api/logout" >Logout</a>
                                     </div>}
                                 </div>
@@ -51,8 +51,8 @@ class App extends React.Component {
     }
 }
 
-function mapStateProps ({auth}) {
-    return {auth}
+function mapStateProps ({user}) {
+    return {user}
 }
 
 export default connect(mapStateProps, actions)(App);

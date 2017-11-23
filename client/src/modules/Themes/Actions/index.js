@@ -5,13 +5,13 @@ import {
     UPDATE_THEME,
 } from './types'
 
+export const fetchThemesList = () => ({type: FETCH_THEME_LIST_DATA, payload: {status: "BEGIN"}});
 
-//TODO. Сделать экшены чистыми функциями.
 
-export const fetchThemesList = () => async (dispatch) => {
-        const result = await axios.get('/api/theme/list');
-        dispatch({type: FETCH_THEME_LIST_DATA, payload: result.data})
-};
+// export const fetchThemesList = () => async (dispatch) => {
+//         const result = await axios.get('/api/theme/list');
+//         dispatch({type: FETCH_THEME_LIST_DATA, payload: result.data})
+// };
 
 
 export const fetchThemeItem = (themeId) => async (dispatch) => {
