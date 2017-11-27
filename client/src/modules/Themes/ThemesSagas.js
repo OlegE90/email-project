@@ -1,6 +1,8 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, put, fork, takeEvery, takeLatest } from 'redux-saga/effects';
 
 import {getPayloadFailure, getPayloadSuccess} from '../../core/Utils';
+
+import {fetchThemesList} from './Actions/index';
 
 import {
     UPDATE_THEME,
@@ -51,6 +53,7 @@ function* updateTheme({payload}) {
     
     try {
         const theme = yield call(Services.updateItem, payload);
+        yield put(fetchThemesList());
         
         yield put({
             type: UPDATE_THEME,
@@ -65,19 +68,12 @@ function* updateTheme({payload}) {
 }
 
 
-function* main({payload}) {
-    if(payload && payload._fromSaga) return;
-    
-    debugger;
-    if(payload.type === FETCH_THEME_LIST_DATA) yield fetchThemeList(payload)
-    
-}
-
-
 function* watchThemesSagas() {
-    yield takeEvery([FETCH_THEME_LIST_DATA, FETCH_THEME_ITEM_DATA], main);
-  //  yield takeEvery(FETCH_THEME_ITEM_DATA, fetchThemeItem);
- //   yield takeEvery(UPDATE_THEME, updateTheme);
+    yield [
+        takeEvery(FETCH_THEME_LIST_DATA, fetchThemeList),
+        takeLatest(FETCH_THEME_ITEM_DATA, fetchThemeItem),
+        takeEvery(UPDATE_THEME, updateTheme),
+    ];
 }
 
 

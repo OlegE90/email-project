@@ -20,7 +20,7 @@ class ThemePage extends React.Component {
                     <div className="row">
 
                         <div className="col s3 themePage-nav">
-                            <LeftSidebar/>
+                            <LeftSidebar />
                         </div>
 
                         <div className="col s9">

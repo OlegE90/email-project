@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 
 import {ROUTES} from './../../../routes';
 import Spinner from '../../../core/Common/Spinner';
+import {isFinalStatus} from '../../../core/Utils';
 
 import * as actions from '../Actions';
 
@@ -14,7 +15,7 @@ class LeftSidebarComponent extends React.Component {
     }
 
     render() {
-        const {list} = this.props.themes;
+        const {list, currentItemId} = this.props;
 
         return (
             <div>
@@ -23,16 +24,26 @@ class LeftSidebarComponent extends React.Component {
                         <i className="material-icons">add</i></a>
                     <span>Add new theme</span>
                 </div>
-                {list.data ? <div className="collection">
-                    {list.data.map((item, key) => <Link to={replace(ROUTES.THEMES.EDIT.FULL_PATH, ':id', item._id)} key={key} className="collection-item">{item.title}</Link>)}
+                {isFinalStatus(list.status) ? <div className='collection'>
+                    {list.data.map((item, key) =>
+                        <Link to={replace(ROUTES.THEMES.EDIT.FULL_PATH, ':id', item._id)}
+                              key={key}
+                              className={`collection-item ${currentItemId === item._id ? 'active' : ''}`}>
+                            {item.title}
+                        </Link>)
+                    }
                 </div> : <Spinner className="center-align" />}
             </div>
         );
     }
 }
 
-function mapStateProps ({themes}) {
-    return {themes}
+function mapStateProps ({themes: {list, item}}) {
+    return {
+        list,
+        //TODO Передовать параметр currentItemId из url-а.
+        currentItemId: item.data && item.data._id || null
+    }
 }
 
 export const LeftSidebar = connect(mapStateProps, actions)(LeftSidebarComponent);
