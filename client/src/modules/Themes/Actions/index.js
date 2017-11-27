@@ -1,11 +1,14 @@
 import axios from 'axios';
+
+import {STATUS} from '../../../core/Consts'
+
 import {
     FETCH_THEME_LIST_DATA,
     FETCH_THEME_ITEM_DATA,
     UPDATE_THEME,
 } from './types'
 
-export const fetchThemesList = () => ({type: FETCH_THEME_LIST_DATA, payload: {status: "BEGIN"}});
+export const fetchThemesList = () => ({type: FETCH_THEME_LIST_DATA, payload: {status: STATUS.BEGIN}});
 
 
 // export const fetchThemesList = () => async (dispatch) => {

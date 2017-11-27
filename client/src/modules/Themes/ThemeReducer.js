@@ -1,14 +1,20 @@
+import {STATUS} from '../../core/Consts'
+
 import {
     FETCH_THEME_LIST_DATA,
     FETCH_THEME_ITEM_DATA
 } from './Actions/types';
 
 const getDefaultState = () => ({
-   list: {
-       data: null
-   },
+    list: {
+        data: null,
+        errors: null,
+        status: STATUS.INIT
+    },
     item: {
-       data: null
+        data: null,
+        errors: null,
+        status: STATUS.INIT
     }
 });
 
@@ -18,14 +24,16 @@ export default function(state = getDefaultState(), action) {
             return {
                 ...state,
                 list: {
-                    data: action.payload || false
+                    ...state.list,
+                    ...action.payload
                 }
             };
         case FETCH_THEME_ITEM_DATA:
             return {
                 ...state,
                 item: {
-                    data: action.payload || false
+                    ...state.item,
+                    ...action.payload
                 }
             };
         default:
