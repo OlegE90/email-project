@@ -10,19 +10,6 @@ import {
 
 export const fetchThemesList = () => ({type: FETCH_THEME_LIST_DATA, payload: {status: STATUS.BEGIN}});
 
+export const fetchThemeItem = (themeId) => ({type: FETCH_THEME_ITEM_DATA, payload: {themeId, status: STATUS.BEGIN}});
 
-// export const fetchThemesList = () => async (dispatch) => {
-//         const result = await axios.get('/api/theme/list');
-//         dispatch({type: FETCH_THEME_LIST_DATA, payload: result.data})
-// };
-
-
-export const fetchThemeItem = (themeId) => async (dispatch) => {
-        const result = await axios.get(`/api/theme/${themeId}`);
-        dispatch({type: FETCH_THEME_ITEM_DATA, payload: result.data})
-};
-
-export const updateTheme = (theme) => async (dispatch) => {
-        const result = await axios.put(`/api/theme/${theme._id}`, theme);
-        dispatch({type: UPDATE_THEME, payload: result.data});
-};
+export const updateTheme = (theme) => ({type: UPDATE_THEME, payload: {theme, status: STATUS.BEGIN}});
