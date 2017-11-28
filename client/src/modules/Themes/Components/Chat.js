@@ -1,7 +1,19 @@
 import React from 'react';
+import {connect} from 'react-redux';
 
-export class Chat extends React.Component {
+import * as actions from '../Actions';
+import {isFinalStatus} from '../../../core/Utils';
+import {STATUS} from '../../../core/Consts';
+
+export class ChatComponent extends React.Component {
+    
+    componentDidMount(){
+        this.props.fetchChat(this.props.currentThemeId);
+    };
+    
     render() {
+        const {messages} = this.props;
+        
         return (
             <div>
                 <div className="themePage-chatMessages">
@@ -35,3 +47,13 @@ export class Chat extends React.Component {
         );
     }
 }
+
+function mapStateProps({themes: {item, messages}}){
+    return {
+        messages: messages,
+        //TODO Передовать параметр currentItemId из url-а.
+        currentThemeId: item.data && item.data._id || null
+    }
+}
+
+export const Chat = connect(mapStateProps, actions)(ChatComponent);

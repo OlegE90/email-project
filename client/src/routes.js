@@ -3,13 +3,13 @@ export const ROUTES = {
     THEMES: {
         FULL_PATH: '/theme',
         PATH: 'theme',
-        EDIT: {
-            FULL_PATH: '/theme/:id/edit',
-            PATH: ':id/edit'
-        },
-        DETAILS: {
+        THEME: {
             FULL_PATH: '/theme/:id',
-            PATH: ':id'
+            PATH: ':id',
+            EDIT: {
+                FULL_PATH: '/theme/:id/edit',
+                PATH: ':id/edit'
+            },
         }
     },
     ABOUT: {

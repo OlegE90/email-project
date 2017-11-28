@@ -6,6 +6,7 @@ import {fetchThemesList} from './Actions/index';
 
 import {
     UPDATE_THEME,
+    FETCH_CHAT,
     FETCH_THEME_ITEM_DATA,
     FETCH_THEME_LIST_DATA
 } from './Actions/types';
@@ -67,12 +68,31 @@ function* updateTheme({payload}) {
     }
 }
 
+function* fetchChat({payload}) {
+    if(payload && payload._fromSaga) return;
+    
+    try {
+        const messages = yield call(Services.getChat, payload);
+        
+        yield put({
+            type: FETCH_CHAT,
+            payload: getPayloadSuccess(messages.data)
+        });
+    } catch (e) {
+        yield put({
+            type: FETCH_CHAT,
+            payload: getPayloadFailure(e)
+        });
+    }
+}
+
 
 function* watchThemesSagas() {
     yield [
         takeEvery(FETCH_THEME_LIST_DATA, fetchThemeList),
         takeLatest(FETCH_THEME_ITEM_DATA, fetchThemeItem),
         takeEvery(UPDATE_THEME, updateTheme),
+        takeEvery(FETCH_CHAT, fetchChat),
     ];
 }
 

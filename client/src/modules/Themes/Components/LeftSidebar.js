@@ -15,7 +15,7 @@ class LeftSidebarComponent extends React.Component {
     }
 
     render() {
-        const {list, currentItemId} = this.props;
+        const {list, currentThemeId} = this.props;
 
         return (
             <div>
@@ -28,7 +28,7 @@ class LeftSidebarComponent extends React.Component {
                     {list.data.map((item, key) =>
                         <Link to={replace(ROUTES.THEMES.EDIT.FULL_PATH, ':id', item._id)}
                               key={key}
-                              className={`collection-item ${currentItemId === item._id ? 'active' : ''}`}>
+                              className={`collection-item ${currentThemeId === item._id ? 'active' : ''}`}>
                             {item.title}
                         </Link>)
                     }
@@ -42,7 +42,7 @@ function mapStateProps ({themes: {list, item}}) {
     return {
         list,
         //TODO Передовать параметр currentItemId из url-а.
-        currentItemId: item.data && item.data._id || null
+        currentThemeId: item.data && item.data._id || null
     }
 }
 

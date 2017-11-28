@@ -1,6 +1,7 @@
 import {STATUS} from '../../core/Consts'
 
 import {
+    FETCH_CHAT,
     FETCH_THEME_LIST_DATA,
     FETCH_THEME_ITEM_DATA
 } from './Actions/types';
@@ -12,6 +13,11 @@ const getDefaultState = () => ({
         status: STATUS.INIT
     },
     item: {
+        data: null,
+        errors: null,
+        status: STATUS.INIT
+    },
+    messages: {
         data: null,
         errors: null,
         status: STATUS.INIT
@@ -33,6 +39,14 @@ export default function(state = getDefaultState(), action) {
                 ...state,
                 item: {
                     ...state.item,
+                    ...action.payload
+                }
+            };
+        case FETCH_CHAT:
+            return {
+                ...state,
+                messages: {
+                    ...state.messages,
                     ...action.payload
                 }
             };

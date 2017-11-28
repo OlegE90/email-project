@@ -24,10 +24,9 @@ class ThemePage extends React.Component {
                         </div>
 
                         <div className="col s9">
-
-                            <Route exact component={Hello} path={`${match.url}`} />
-                            <Route exact component={ThemeForm} path={ROUTES.THEMES.EDIT.FULL_PATH}/>
-                            <Route exact component={Details} path={ROUTES.THEMES.DETAILS.FULL_PATH}/>
+                            
+                            <Route exact component={ThemeForm} path={ROUTES.THEMES.THEME.EDIT.FULL_PATH}/>
+                            <Route component={Details} path={ROUTES.THEMES.THEME.FULL_PATH}/>
 
                             <div className="themePage-chat">
                                 <Chat />

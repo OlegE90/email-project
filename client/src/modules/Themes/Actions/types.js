@@ -3,3 +3,7 @@ export const FETCH_THEME_LIST_DATA = 'FETCH_THEME_LIST_DATA';
 export const FETCH_THEME_ITEM_DATA = 'FETCH_THEME_ITEM_DATA';
 
 export const UPDATE_THEME = 'UPDATE_THEME';
+
+export const ADD_MESSAGE = 'ADD_MESSAGE';
+
+export const FETCH_CHAT = 'FETCH_CHAT';

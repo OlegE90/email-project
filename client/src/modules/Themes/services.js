@@ -7,4 +7,6 @@ export default class ThemeService {
     static getItem = async ({themeId}) => await axios.get(`/api/theme/${themeId}`);
 
     static updateItem = async ({theme}) => await axios.put(`/api/theme/${theme._id}`, theme);
+    
+    static getChat = async (themeId) => await axios.get(`/api/message/${themeId}/list`);
 }
