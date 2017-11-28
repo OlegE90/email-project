@@ -1,6 +1,7 @@
 import express from 'express';
 
 import ThemeRouter from '../Modules/Themes/ThemeRouter';
+import MessageRouter from '../Modules/Messages/MessageRouter';
 
 const apiRouter = express.Router();
 
@@ -20,5 +21,6 @@ apiRouter.get(
 );
 
 apiRouter.use('/theme', ThemeRouter);
+apiRouter.use('/message', MessageRouter);
 
 export default  apiRouter;

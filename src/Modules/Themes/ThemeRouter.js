@@ -4,7 +4,7 @@ import ThemeController from './ThemeController';
 
 const themeRouter = express.Router();
 
-themeRouter.param(':id', ThemeController.findByParam);
+themeRouter.param('id', ThemeController.findByParam);
 
 themeRouter.post(
     '/',
