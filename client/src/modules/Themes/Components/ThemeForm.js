@@ -17,16 +17,25 @@ export class ThemeFormComponent extends React.Component {
         }
     };
     
-    componentWillReceiveProps({match: {params}, theme, theme: {status, data}}){
-        if(!params.id) return;
-
-        const {fetchThemeItem} = this.props;
-
-        if(status === STATUS.INIT || isFinalStatus(status) && params.id !== data._id) {
-            fetchThemeItem(params.id);
-        }
-
+    constructor(props){
+        super(props);
+        
+        const {match: {params}, theme} = this.props;
+        
+        this.fetchThemeItem({...theme, params});
+    }
+    
+    componentWillReceiveProps({match: {params}, theme}){
+        this.fetchThemeItem({...theme, params});
         theme.data && this.setState({status: theme.status, theme: theme.data});
+    };
+    
+    fetchThemeItem = ({status, params, data}) => {
+        if(!params.id) return;
+        
+        if(status === STATUS.INIT || isFinalStatus(status) && params.id !== data._id) {
+            this.props.fetchThemeItem(params.id);
+        }
     };
     
     handlerTitleChange = (e) =>{

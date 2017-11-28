@@ -3,10 +3,10 @@ import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 
 import 'materialize-css/dist/css/materialize.min.css';
-import App from './app';
+import App from './modules/app';
 
 import sagas from './sagas'
-import configureStore from './configureStore'
+import configureStore from './core/configureStore'
 
 const store = configureStore();
 store.runSaga(sagas);

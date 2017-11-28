@@ -2,11 +2,11 @@ import React from 'react';
 import {Route, BrowserRouter as Router, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 
-import './assets/css/App.css';
-import Main from './core/Main';
+import '../assets/css/App.css';
+import Main from '../core/Main';
 
-import * as actions from './modules/Users/actions';
-import {ROUTES} from './routes'
+import * as actions from './Users/actions';
+import {ROUTES} from '../routes'
 
 class App extends React.Component {
 
