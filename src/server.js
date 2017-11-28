@@ -8,8 +8,7 @@ import commonMiddleware from './commonMiddleware';
 import apiRouter from './Routes/apiRouter';
 import authRouter from './Routes/authRouter';
 import testRouter from './Routes/testRouter';
-
-const PORT = process.env.PORT || 5000;
+import graphqlRouter from './Routes/graphqlRouter';
 
 let app = express();
 
@@ -22,5 +21,6 @@ const checkUser = (req, _, next) => req.user ? next() : next(new Error('User not
 app.use('/api', checkUser, apiRouter);
 app.use('/auth', authRouter);
 app.use('/test', testRouter);
+app.use('/graphiql', graphqlRouter);
 
 export default app;

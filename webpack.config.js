@@ -32,7 +32,8 @@ const backend = {
                 }
             },
             exclude: '/node_modules/'
-        }]
+        },
+        {test: /\.graphql?$/, loader: 'webpack-graphql-loader'}]
     },
     node: {
         __filename: true,

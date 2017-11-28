@@ -5,16 +5,19 @@
   "main": "index.js",
   "scripts": {
     "client": "npm run start --prefix client",
-    "server": "webpack --colors --progress",
-    "start": "concurrently \"npm run server NODE_ENV=production\" \"npm run client\""
+    "devServer": "cross-env NODE_ENV=dev webpack --colors --progress",
+    "start": "concurrently \"npm run devServer\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "apollo-server-express": "^1.2.0",
     "body-parser": "^1.18.2",
     "concurrently": "^3.5.0",
     "cookie-session": "^2.0.0-beta.3",
     "express": "^4.16.2",
+    "graphql": "^0.11.7",
+    "graphql-tools": "^2.9.0",
     "http": "0.0.0",
     "lodash": "^4.17.4",
     "mongoose": "^4.12.3",
@@ -26,8 +29,10 @@
     "babel-loader": "^8.0.0-beta.0",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "cross-env": "^5.1.1",
     "start-server-webpack-plugin": "^2.2.0",
     "webpack": "^3.8.1",
+    "webpack-graphql-loader": "0.0.16",
     "webpack-node-externals": "^1.6.0"
   }
 }
