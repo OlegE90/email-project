@@ -6,7 +6,7 @@ import bodyParser from 'body-parser';
 import config from './config';
 
 // Shemes
-import User from './Schemas/User';
+import User from './Modules/Users/Schemas/User';
 
 const GoogleStrategy = Google.Strategy;
 

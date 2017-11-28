@@ -1,6 +1,6 @@
 import express from 'express';
 
-import ThemeRouter from '../Modules/Theme/ThemeRouter';
+import ThemeRouter from '../Modules/Themes/ThemeRouter';
 
 const apiRouter = express.Router();
 

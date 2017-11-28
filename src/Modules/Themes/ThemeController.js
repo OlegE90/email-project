@@ -1,7 +1,7 @@
 import generateControllers from '../../Core/generateControllers';
 
-import Theme from '../../Schemas/Theme';
-import UserTheme from '../../Schemas/UserTheme';
+import Theme from './ThemeSchemas';
+import UserTheme from '../Users/Schemas/UserTheme';
 
 export default generateControllers(Theme, {
     createOne: async (req, res, next) => {
