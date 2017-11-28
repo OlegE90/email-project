@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "client": "npm run start --prefix client",
-    "server": "webpack --colors --progress",
-    "start": "concurrently \"npm run server NODE_ENV=production\" \"npm run client\""
+    "devServer": "cross-env NODE_ENV=dev webpack --colors --progress",
+    "start": "concurrently \"npm run devServer\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
@@ -26,6 +26,7 @@
     "babel-loader": "^8.0.0-beta.0",
     "babel-plugin-transform-async-to-generator": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "cross-env": "^5.1.1",
     "start-server-webpack-plugin": "^2.2.0",
     "webpack": "^3.8.1",
     "webpack-node-externals": "^1.6.0"

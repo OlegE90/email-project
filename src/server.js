@@ -9,8 +9,6 @@ import apiRouter from './Routes/apiRouter';
 import authRouter from './Routes/authRouter';
 import testRouter from './Routes/testRouter';
 
-const PORT = process.env.PORT || 5000;
-
 let app = express();
 
 mongoose.connect(config.mongodb_uri);
